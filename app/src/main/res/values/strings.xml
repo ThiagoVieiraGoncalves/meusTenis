@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MeusTenis</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="navigation_sobre">Sobre</string>
+    <string name="navigation_novo_tenis">Novo Tenis</string>
+    <string name="navigation_ver_tenis">Ver Tenis</string>
+
 </resources>
