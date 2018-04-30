@@ -1,10 +1,12 @@
 <resources>
-    <string name="app_name">MeusTenis</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="app_name">MyShoes</string>
+    <string name="title_activity_main">MyShoes</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="navigation_sobre">Sobre</string>
-    <string name="navigation_novo_tenis">Novo Tenis</string>
-    <string name="navigation_ver_tenis">Ver Tenis</string>
+    <string name="navigation_sobre">About</string>
+    <string name="navigation_novo_tenis">New Tenis</string>
+    <string name="navigation_ver_tenis">List Shoes</string>
+    <string name="error_title">Something went wrong</string>
+    <string name="error_description">Restart your phone and try again</string>
+    <string name="loading">Loading...</string>
 
 </resources>
