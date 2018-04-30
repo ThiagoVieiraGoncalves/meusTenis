@@ -8,6 +8,7 @@ import android.widget.Toast
 import thiagovieira.com.br.meustenis.R
 import kotlinx.android.synthetic.main.activity_main.*
 import thiagovieira.com.br.meustenis.ui.lista.ListaTenisFragment
+import thiagovieira.com.br.meustenis.ui.novoTenis.NovoTenisFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,6 +16,10 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.navigation_lista -> {
                 changeFragment(ListaTenisFragment())
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.navigation_novo-> {
+                changeFragment(NovoTenisFragment())
                 return@OnNavigationItemSelectedListener true
             }
         }

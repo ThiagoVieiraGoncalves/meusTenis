@@ -8,5 +8,9 @@
     <string name="error_title">Something went wrong</string>
     <string name="error_description">Restart your phone and try again</string>
     <string name="loading">Loading...</string>
+    <string name="et_model">Model</string>
+    <string name="et_brand">Brand</string>
+    <string name="et_size">Size</string>
+    <string name="et_url_image">Url Image</string>
 
 </resources>
