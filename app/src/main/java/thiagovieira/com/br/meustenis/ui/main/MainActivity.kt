@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import android.widget.Toast
 import thiagovieira.com.br.meustenis.R
 import kotlinx.android.synthetic.main.activity_main.*
 import thiagovieira.com.br.meustenis.ui.lista.ListaTenisFragment
 import thiagovieira.com.br.meustenis.ui.novoTenis.NovoTenisFragment
+import thiagovieira.com.br.meustenis.ui.sobre.SobreFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +20,10 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.navigation_novo-> {
                 changeFragment(NovoTenisFragment())
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.navigation_sobre -> {
+                changeFragment(SobreFragment())
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -37,5 +41,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
+        changeFragment(ListaTenisFragment())
     }
 }
