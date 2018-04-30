@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.animation.AnimationUtils
 import kotlinx.android.synthetic.main.activity_splash.*
 import thiagovieira.com.br.meustenis.R
-import thiagovieira.com.br.meustenis.ui.main.MainActivity
+import thiagovieira.com.br.meustenis.ui.login.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -18,7 +18,7 @@ class SplashActivity : AppCompatActivity() {
         loadAnimation()
 
         Handler().postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
             this.finish()
         }, 3000)
     }
