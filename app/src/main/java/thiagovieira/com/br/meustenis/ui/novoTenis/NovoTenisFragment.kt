@@ -31,14 +31,14 @@ class NovoTenisFragment : Fragment() {
         btSalvar.setOnClickListener {
             val api = RetrofitClient.getInstance().create(TenisAPI::class.java)
 
-            val carro = Tenis(null,
+            val tenis = Tenis(null,
                     inputMarca.editText?.text.toString(),
                     inputModelo.editText?.text.toString(),
                     inputTamanho.editText?.text.toString().toInt(),
                     inputUrlImagem.editText?.text.toString()
             )
 
-            api.salvar(carro).enqueue(object : Callback<Void> {
+            api.salvar(tenis).enqueue(object : Callback<Void> {
                 override fun onFailure(call: Call<Void>?, t: Throwable?) {
                     Log.e("Tenis", t?.message)
                 }
