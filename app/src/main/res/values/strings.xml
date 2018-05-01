@@ -30,5 +30,7 @@
     <string name="et_password">Password</string>
     <string name="et_log_in">Log in</string>
     <string name="tv_register">Register</string>
+    <string name="save">Save</string>
+    <string name="et_nome">Name</string>
 
 </resources>

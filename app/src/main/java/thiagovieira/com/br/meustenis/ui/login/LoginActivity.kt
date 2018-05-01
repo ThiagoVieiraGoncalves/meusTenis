@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
+import android.widget.Toast
 
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.erro.*
@@ -17,9 +18,9 @@ import retrofit2.Response
 import thiagovieira.com.br.meustenis.R
 import thiagovieira.com.br.meustenis.api.RetrofitClient
 import thiagovieira.com.br.meustenis.api.UsuarioAPI
-import thiagovieira.com.br.meustenis.model.Tenis
 import thiagovieira.com.br.meustenis.model.Usuario
 import thiagovieira.com.br.meustenis.ui.main.MainActivity
+import thiagovieira.com.br.meustenis.ui.novoUsuario.NovoUsuarioActivity
 
 /**
  * A login screen that offers login via email/password.
@@ -41,6 +42,10 @@ class LoginActivity : AppCompatActivity() {
         })
 
         email_sign_in_button.setOnClickListener { attemptLogin() }
+
+        register.setOnClickListener{
+            startActivity(Intent(this, NovoUsuarioActivity::class.java))
+        }
     }
 
     private fun attemptLogin() {
@@ -57,20 +62,23 @@ class LoginActivity : AppCompatActivity() {
 
         api.login(usuario).enqueue(object : Callback<Usuario> {
             override fun onFailure(call: Call<Usuario>?, t: Throwable?) {
-                containerErro.visibility = View.VISIBLE
-                tvMensagemErro.text = t?.message
-                loading.visibility = View.GONE
+                Toast.makeText(
+                        application.baseContext,
+                        "Login/Password invalid. Try again",
+                        Toast.LENGTH_SHORT
+                ).show()
             }
 
             override fun onResponse(call: Call<Usuario>?, response: Response<Usuario>?) {
                 if(response?.body() != null) {
                     goToMainActivity()
                 }else{
-                    containerErro.visibility = View.VISIBLE
-                    tvMensagemErro.text = response?.errorBody()?.charStream()?.readText()
+                    Toast.makeText(
+                        application.baseContext,
+                        "Login/Password invalid. Try again",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
-
-                loading.visibility = View.GONE
             }
 
         })

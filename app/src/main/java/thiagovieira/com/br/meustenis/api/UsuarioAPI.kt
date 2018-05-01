@@ -8,7 +8,7 @@ import thiagovieira.com.br.meustenis.model.Usuario
 interface UsuarioAPI {
 
     @POST("/usuario")
-    fun salvar() : Call<Void>
+    fun salvar(@Body usuario: Usuario) : Call<Void>
 
     @POST("/usuario/login")
     fun login(@Body usuario: Usuario): Call<Usuario>
