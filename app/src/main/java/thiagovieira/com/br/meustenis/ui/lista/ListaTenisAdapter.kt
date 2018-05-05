@@ -1,7 +1,9 @@
 package thiagovieira.com.br.meustenis.ui.lista
 
 import android.content.Context
+import android.os.Bundle
 import android.support.v4.content.ContextCompat
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +12,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_tenis.view.*
 import thiagovieira.com.br.meustenis.R
 import thiagovieira.com.br.meustenis.model.Tenis
+import thiagovieira.com.br.meustenis.ui.editaTenis.EditaTenisFragment
 
 class ListaTenisAdapter(private val meusTenis: List<Tenis>,
                         private val context: Context)
@@ -20,7 +23,8 @@ class ListaTenisAdapter(private val meusTenis: List<Tenis>,
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): MeuViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_tenis, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.item_tenis,
+                parent, false)
         return MeuViewHolder(view)
     }
 
@@ -38,15 +42,27 @@ class ListaTenisAdapter(private val meusTenis: List<Tenis>,
             itemView.tvTamanho.text = tenis.tamanho.toString()
 
             if(tenis.urlImagem.isNullOrEmpty()){
-                itemView.ivFoto.setImageDrawable(
-                        ContextCompat.getDrawable(itemView.context, R.drawable.error)
-                )
+                itemView.ivFoto.setImageDrawable(ContextCompat.getDrawable(itemView.context,
+                        R.drawable.error))
             }else {
                 Picasso.get()
                         .load(tenis.urlImagem)
                         .placeholder(R.drawable.sandclock)
                         .error(R.drawable.error)
                         .into(itemView.ivFoto)
+            }
+
+            itemView.setOnClickListener {
+                val activity = itemView.context as AppCompatActivity
+                val editaTenisFragment = EditaTenisFragment()
+
+                val bundle = Bundle()
+                bundle.putString("id", tenis.id)
+
+                editaTenisFragment.arguments = bundle
+
+                activity.supportFragmentManager.beginTransaction().replace(R.id.containerFragment,
+                        editaTenisFragment).addToBackStack(null).commit()
             }
 
         }

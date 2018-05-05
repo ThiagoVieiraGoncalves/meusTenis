@@ -72,8 +72,22 @@
         android:layout_gravity="bottom|right"
         android:layout_margin="16dp"
         android:src="@android:drawable/ic_input_add"
-        app:backgroundTint="@android:color/holo_green_light"
+        app:backgroundTint="@android:color/holo_green_dark"
         app:layout_anchorGravity="bottom|right|end" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btDeletar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="75dp"
+        android:layout_marginRight="16dp"
+        android:src="@android:drawable/ic_menu_delete"
+        app:backgroundTint="@android:color/holo_red_dark"
+        app:layout_anchorGravity="bottom|right|end"
+        android:visibility="gone"/>
+
+    <include layout="@layout/loading" />
 
 </android.support.design.widget.CoordinatorLayout>
 
